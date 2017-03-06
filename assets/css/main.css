@@ -2659,12 +2659,12 @@
 			background-color: #353849;
 			border-radius: 5px;
 			margin: 1.5em 3em 1.5em 0;
-			width: calc(50% - 1.5em);
+			width: calc(20% - 0.5em);
 		}
 
-			.features article:nth-child(2n) {
+			/*.features article:nth-child(2n) {
 				margin-right: 0;
-			}
+			}*/
 
 			.features article .image {
 				border-radius: 5px 5px 0 0;
