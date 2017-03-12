@@ -21,9 +21,19 @@
 						<h1><a href="index.html">Lucian Stroie</a></h1>
 						<button onclick="ScrollToBottom()">Contact</button>
 						<script>
-						 function ScrollToBottom(){
-							 window.scrollBy(0,9000);
-						 }
+							function findPos(obj) {
+							    var curtop = 0;
+							    if (obj.offsetParent) {
+							        do {
+							            curtop += obj.offsetTop;
+							        } while (obj = obj.offsetParent);
+							    return [curtop];
+							    }
+							}
+							function ScrollToBottom(){
+								window.scroll(0,findPos(document.getElementById("contact")));
+							}
+
 						</script>
 						<!-- <nav>
 							<a href="#menu">Menu</a>
@@ -51,7 +61,7 @@
 						<div class="inner" >
 							<div class="logo"><span class="icon fa-globe"></span></div>
 							<h2>Lucian Stroie</h2>
-							<p>NYC based full stack web developer</p>
+							<p>NYC based software engineer</p>
 						</div>
 					</section>
 
@@ -65,9 +75,9 @@
 									<div class="content">
 										<h2 class="major">Social Business Starter</h2>
 										<p>- A KickStarter clone built with Rails and React/Flux</p>
-										<p class="project-des">-Integrated cloud storage using AWS S3 in project and user creation, reducing server load and allows for scaling.
-</br> -Implemented core CRUD for projects and pledge levels while minimizing changes to the UI to reach these features.
-</br> -Through a nested state and a custom controller, I’ve allowed users to make contributions without triggering page re-rendering, while still providing users with a satisfying confirmation.
+										<p class="project-des">-Integrated cloud storage for user uploaded picture, reducing server load and allowing for scaling.
+</br> -Maximized component reuse to keep code DRY and to minimize UI changes without impairing functionality.
+</br> -I’ve allowed users to make contributions without triggering page re-rendering by nesting state and triggering changes through custom controller actions,  while still providing users with satisfying visual feedback.
 </p>
 										<a href="https://socialbusinessstarter.herokuapp.com/#/" class="special">Live Link</a>
 										<a href="https://github.com/lucianstroie/SocialBusinessStarter" class="special">GitHub Repo</a>
@@ -81,12 +91,12 @@
 									<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
 									<div class="content">
 										<h2 class="major">21 Most Times</h2>
-										<p>- A game of Blackjack card counting game using pure probability calculations.</p>
-										<p>-Built using vanilla JavaScript and functional programing principles to allow for betting informed by a count of cards to show the real time probability distribution of outcomes.
-</br> -The visual representation of probabilities allows the user to either follow the recommendations of the AI, have the AI automatically place bets for them, or try their own strategy.
+										<p>- Blackjack card counting game built with vanilla JavaScript. </p>
+										<p>-Builds a probability density function calculated using the actual deck count, informing betting decisions with a graph of the points before the cards are dealt.
+</br> -AI makes a decision to hit or not based on the cards visible on the table and the cards remaining in the deck. The player can either follow the recommendations of the AI, have the AI automatically play their hand for them, or try their own strategy.
 </p>
-										<a href="#" class="special">Learn more</a>
-										<a href="#" class="special">Learn more</a>
+										<a href="https://lucianstroie.github.io/CountTo21/" class="special">Live Link</a>
+										<a href="https://github.com/lucianstroie/CountTo21" class="special">GitHub Repo</a>
 									</div>
 								</div>
 							</section>
@@ -98,11 +108,8 @@
 									<div class="content">
 										<h2 class="major">jQuity</h2>
 										<p>- DOM manipulation using vanilla JavaScript that lets you quit using jQuery</p>
-										<p>-Abstracts native DOM API into JavaScript objects to replicate
-											jQuery’s core DOM manipulation functionality,  making AJAX requests
-											and event handling with native DOM API.</p>
-										<a href="#" class="special">Learn more</a>
-										<a href="#" class="special">Learn more</a>
+										<p>-Abstracts native DOM API into JavaScript objects with core DOM manipulation functionality,  making AJAX requests and event handling with native DOM API.</p>
+										<a href="https://github.com/lucianstroie/jQuity" class="special">GitHub Repo</a>
 									</div>
 								</div>
 							</section>
@@ -227,7 +234,7 @@
 				<!-- Footer -->
 					<section id="footer">
 						<div class="inner" >
-							<h2 class="major">Get in touch</h2>
+							<h2 class="major" id="contact">Get in touch</h2>
 
 							<!-- <form method="post" action="#">
 								<div class="field">
@@ -246,7 +253,7 @@
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
 							</form> -->
-							<ul class="contact">
+							<ul class="contact" >
 								<!-- <li class="fa-home">
 									Untitled Inc<br />
 									1234 Somewhere Road Suite #2894<br />
